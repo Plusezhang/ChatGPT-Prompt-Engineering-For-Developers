@@ -57,12 +57,10 @@ Instruction Tuned LLM 经过训练后与 Base LLM 相比在输出内容的安全
 * XML 标签：<tag></tag>
 ```
 Text：
-You should express what you want a model to do by providing instructions that are as 
-clear and specific as you can possibly make them. This will guide the model towards 
-the desired output,  and reduce the chances of receiving irrelevant or incorrect 
-responses. Don't confuse writing a clear prompt with writing a short prompt. In many 
-cases, longer prompts provide more clarity and context for the model, which can lead to 
-more detailed and relevant outputs.
+You should express what you want a model to do by providing instructions that are as clear and specific as you can possibly make 
+them. This will guide the model towards the desired output,  and reduce the chances of receiving irrelevant or incorrect responses. 
+Don't confuse writing a clear prompt with writing a short prompt. In many cases, longer prompts provide more clarity and context 
+for the model, which can lead to more detailed and relevant outputs.
 
 Prompt：
 Summarize the text delimited by triple backticks into a single sentence.
@@ -82,15 +80,14 @@ Provide them in JSON format with the following keys: book_id, title, author, gen
 例如 从一段泡茶步骤中提取指令（有指令步骤的例子）
 ```
 Text:
-Making a cup of tea is easy! First, you need to get some water boiling. While that's happening, grab 
-a cup and put a tea bag in it. Once the water is hot enough, just pour it over the tea bag.  Let it 
-sit for a bit so the tea can steep. After a few minutes, take out the tea bag. If you like, you can 
-add some sugar or milk to taste.  And that's it! You've got yourself a delicious cup of tea to enjoy.
+Making a cup of tea is easy! First, you need to get some water boiling. While that's happening, grab a cup and put a tea bag in 
+it. Once the water is hot enough, just pour it over the tea bag.  Let it sit for a bit so the tea can steep. After a few minutes, 
+take out the tea bag. If you like, you can add some sugar or milk to taste.  And that's it! You've got yourself a delicious cup 
+of tea to enjoy.
 
 Prompt：
 You will be provided with text delimited by triple quotes. 
 If it contains a sequence of instructions, re-write those instructions in the following format:
-
 Step 1 - ...
 Step 2 - …
 …
@@ -101,10 +98,10 @@ If the text does not contain a sequence of instructions, then simply write No st
 无指令步骤的例子，下面一段描写场景的文本。
 ```
 Text:
-The sun is shining brightly today, and the birds are singing. It's a beautiful day to go for a walk in the park. 
-The flowers are blooming, and the  trees are swaying gently in the breeze. Peopleare out and about, enjoying the 
-lovely weather.  Some are having picnics, while others are playing  games or simply relaxing on the grass. It's 
-a perfect day to spend time outdoors and appreciate the  beauty of nature.
+The sun is shining brightly today, and the birds are singing. It's a beautiful day to go for a walk in the park. The flowers are 
+blooming, and the  trees are swaying gently in the breeze. Peopleare out and about, enjoying the lovely weather.  Some are having 
+picnics, while others are playing  games or simply relaxing on the grass. It's a perfect day to spend time outdoors and appreciate 
+the  beauty of nature.
 
 Prompt:
 You will be provided with text delimited by triple quotes. 
@@ -148,7 +145,10 @@ Separate your answers with line breaks.
 
 Text:
 '''
-In a charming village, siblings Jack and Jill set out on a quest to fetch water from a hilltop well. As they climbed, singing joyfully, misfortune struck—Jack tripped on a stone and tumbled down the hill, with Jill following suit. Though slightly battered, the pair returned home to comforting embraces. Despite the mishap, their adventurous spirits remained undimmed, and they continued exploring with delight.
+In a charming village, siblings Jack and Jill set out on a quest to fetch water from a hilltop well. As they climbed, singing 
+joyfully, misfortune struck—Jack tripped on a stone and tumbled down the hill, with Jill following suit. Though slightly battered, 
+the pair returned home to comforting embraces. Despite the mishap, their adventurous spirits remained undimmed, and they continued 
+exploring with delight.
 '''
 ```
 ![](image/Guiddlines/9.png)
@@ -169,7 +169,10 @@ Output JSON: <json with summary and num_names>
 
 Text: 
 '''
-In a charming village, siblings Jack and Jill set out on a quest to fetch water from a hilltop well. As they climbed, singing joyfully, misfortune struck—Jack tripped on a stone and tumbled down the hill, with Jill following suit. Though slightly battered, the pair returned home to comforting embraces. Despite the mishap, their adventurous spirits remained undimmed, and they continued exploring with delight.
+In a charming village, siblings Jack and Jill set out on a quest to fetch water from a hilltop well. As they climbed, singing 
+joyfully, misfortune struck—Jack tripped on a stone and tumbled down the hill, with Jill following suit. Though slightly
+battered, the pair returned home to comforting embraces. Despite the mishap, their adventurous spirits remained undimmed, 
+and they continued exploring with delight.
 '''
 ```
 ![](image/Guiddlines/10.png)
@@ -252,8 +255,298 @@ Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000
 ![](image/Guiddlines/13.png)
 ![](image/Guiddlines/14.png)
 ## 迭代开发你的提示词
-吴恩达老师没有任何一个提示词可以完美地适应每个场景，不必太多关注网上“xx个提示词更好地帮助你”类似这样的文章，获得合适的提示词的过程才是重要的。
+吴恩达老师讲没有任何一个提示词可以完美地适应每个场景，不必太多关注网上“xx个提示词更好地帮助你”类似这样的文章，获得合适的提示词的过程才是重要的。
 ### 提示词迭代过程
+![](image/Lesson4_Iterative/fd8b13e5-d269-499f-8ded-42f6dc607f51.png)
+- 提示词清晰简洁
+- 分析为什么没有得到期望的输出
+- 完善想法和提示，或者给模型更多的时间思考
+- 重复以上过程
+### 椅子说明书的例子
+```
+Prompt:
+Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
 
+Write a product description based on the information provided in the technical specifications delimited by triple backticks.
 
+Technical specifications:
+'''
+OVERVIEW
+- Part of a beautiful family of mid-century inspired office furniture, 
+including filing cabinets, desks, bookcases, meeting tables, and more.
+- Several options of shell color and base finishes.
+- Available with plastic back and front upholstery (SWC-100) 
+or full upholstery (SWC-110) in 10 fabric and 6 leather options.
+- Base finish options are: stainless steel, matte black, 
+gloss white, or chrome.
+- Chair is available with or without armrests.
+- Suitable for home or business settings.
+- Qualified for contract use.
 
+CONSTRUCTION
+- 5-wheel plastic coated aluminum base.
+- Pneumatic chair adjust for easy raise/lower action.
+
+DIMENSIONS
+- WIDTH 53 CM | 20.87”
+- DEPTH 51 CM | 20.08”
+- HEIGHT 80 CM | 31.50”
+- SEAT HEIGHT 44 CM | 17.32”
+- SEAT DEPTH 41 CM | 16.14”
+
+OPTIONS
+- Soft or hard-floor caster options.
+- Two choices of seat foam densities: 
+ medium (1.8 lb/ft3) or high (2.8 lb/ft3)
+- Armless or 8 position PU armrests 
+
+MATERIALS
+SHELL BASE GLIDER
+- Cast Aluminum with modified nylon PA6/PA66 coating.
+- Shell thickness: 10 mm.
+SEAT
+- HD36 foam
+
+COUNTRY OF ORIGIN
+- Italy
+```
+![](image/Lesson4_Iterative/椅子说明书_回复.png)
+#### 迭代一：生成的文本太长，可以限制单词/句子/字符的数量
+```
+Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
+
+Write a product description based on the information provided in the technical specifications delimited by triple backticks.
+
+Use at most 50 words.
+Use at most 3 sentences
+Use at most 280 characters
+
+Technical specifications:
+'''
+chair description
+'''
+```
+![](image/Lesson4_Iterative/迭代回复_50个单词内.png)
+#### 迭代二：当生成的文本关注了错误的细节时，提示词说明应该侧重于哪些方面
+下面是一个「面向家具零售商，侧重于椅子的技术和材料性质的产品描述」
+```
+Prompt:
+Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
+
+Write a product description based on the information provided in the technical specifications delimited by triple backticks.
+
+The description is intended for furniture retailers, so should be technical in nature and focus on the materials the product is 
+constructed from.
+At the end of the description, include every 7-character Product ID in the technical specification.
+
+Use at most 50 words.
+
+Technical specifications:
+'''
+chair description
+'''
+```
+![](image/Lesson4_Iterative/迭代回复二_侧重方面.png)
+#### 迭代三：需要尺寸以表格形式描述
+```
+Prompt:
+Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
+
+Write a product description based on the information provided in the technical specifications delimited by triple backticks.
+
+The description is intended for furniture retailers, so should be technical in nature and focus on the materials the product is 
+constructed from.
+At the end of the description, include every 7-character Product ID in the technical specification.
+
+Use at most 50 words.
+
+After the description, include a table that gives the product's dimensions. The table should have two columns.
+In the first column include the name of the dimension. In the second column include the measurements in inches only.
+
+Give the table the title 'Product Dimensions'.
+
+Format everything as HTML that can be used in a website. 
+Place the description in a <div> element.
+
+Technical specifications:
+'''
+chair description
+'''
+```
+```HTML
+ChatGPT:
+<div>
+  Discover this mid-century inspired office chair, crafted from cast aluminum with a modified nylon PA6/PA66 coating. 
+  Featuring a 5-wheel base, pneumatic adjust, and HD36 foam seat, choose from plastic (SWC-100) or fully 
+  upholstered (SWC-110) options. Armrests optional. Ideal for contract use.
+</div>
+
+<table>
+  <caption>Product Dimensions</caption>
+  <tr>
+    <th>Dimension</th>
+    <th>Measurement (in)</th>
+  </tr>
+  <tr>
+    <td>Width</td>
+    <td>20.87</td>
+  </tr>
+  <tr>
+    <td>Depth</td>
+    <td>20.08</td>
+  </tr>
+  <tr>
+    <td>Height</td>
+    <td>31.50</td>
+  </tr>
+  <tr>
+    <td>Seat Height</td>
+    <td>17.32</td>
+  </tr>
+  <tr>
+    <td>Seat Depth</td>
+    <td>16.14</td>
+  </tr>
+</table>
+
+```
+## 文本总结
+这节课程主要向我们展现了 ChatGPT 的文本总结能力，我们以下列商品评论为文本来看看 ChatGPT 可以怎样去总结文本。
+```
+Text：
+Got this panda plush toy for my daughter's birthday, who loves it and takes it everywhere. It's soft and super cute, and its 
+face has a friendly look. It's a bit small for what I paid though. I think there might be other options that are bigger for 
+the same price. It arrived a day earlier than expected, so I got to play with it myself before I gave it to her.
+```
+### 在单词数/句子数/字符数限制的条件下总结
+```
+Prompt:
+Your task is to generate a short summary of a product review from an ecommerce site. 
+Summarize the review below, delimited by triple backticks, in at most 30 words/in at most three words/in at most 280 characters. 
+
+Review:
+'''
+revies description
+'''
+
+ChatGPT:
+Soft and super cute panda plush toy loved by daughter and arrived a day earlier. However, a bit small for the price.
+```
+### 对不同的主题进行总结
+#### 主题为运输和交付时
+```
+Prompt：
+Your task is to generate a short summary of a product review from an ecommerce site to give feedback to the Shipping deparmtment. 
+
+Summarize the review below, delimited by triple backticks, in at most 30 words, and focusing on any aspects that mention shipping 
+and delivery of the product. 
+
+Review:
+'''
+revies description
+'''
+
+ChatGPT:
+The product arrived a day earlier than expected, allowing for personal testing, but the customer feels it's overpriced for 
+the small size. No specific feedback for the shipping department.
+```
+#### 主题为价格和价值时
+```
+Prompt:
+Your task is to generate a short summary of a product review from an ecommerce site to give feedback to the pricing deparmtment, 
+responsible for determining the price of the product.  
+
+Summarize the review below, delimited by triple backticks, in at most 30 words, and focusing on any aspects that are relevant 
+to the price and perceived value. 
+
+Review:
+'''
+revies description
+'''
+
+ChatGPT:
+The plush toy is soft, cute, and loved by the recipient, but a bit small for the price paid. The reviewer suggests there may 
+be better options at the same price point.
+```
+#### 尝试用「提取」来替代「总结」
+「总结」会包含与焦点话题无关的话题，「提取」只输出焦点话题的内容。
+```
+Prompt:
+Your task is to extract relevant information from a product review from an ecommerce site to give feedback to the Shipping 
+department. 
+From the review below, delimited by triple quotes extract the information relevant to shipping and delivery. Limit to 30 words. 
+
+Review:
+'''
+revies description
+'''
+
+ChatGPT:
+Arrived a day earlier than expected.
+```
+### 总结多个产品评论
+```
+Text1:
+Needed a nice lamp for my bedroom, and this one had additional storage and not too high of a price point. Got it fast - arrived 
+in 2 days. The string to the lamp broke during the transit and the company happily sent over a new one. Came within a few days 
+as well. It was easy to put together. Then I had a missing part, so I contacted their support and they very quickly got me the 
+missing piece! Seems to me to be a great company that cares about their customers and products. 
+```
+```
+Text2:
+My dental hygienist recommended an electric toothbrush, which is why I got this. The battery life seems to be pretty impressive 
+so far. After initial charging and leaving the charger plugged in for the first week to condition the battery, I've unplugged 
+the charger and been using it for twice daily brushing for the last 3 weeks all on the same charge. But the toothbrush head 
+is too small. I’ve seen baby toothbrushes bigger than this one. I wish the head was bigger with different length bristles to 
+get between teeth better because this one doesn’t.  Overall if you can get this one around the $50 mark, it's a good deal. 
+The manufactuer's replacements heads are pretty expensive, but you can get generic ones that're more reasonably priced. 
+This toothbrush makes me feel like I've been to the dentist every day. My teeth feel sparkly clean! 
+```
+```
+Text3:
+So, they still had the 17 piece system on seasonal sale for around $49 in the month of November, about half off, but for 
+some reason (call it price gouging) around the second week of December the prices all went up to about anywhere from between 
+$70-$89 for the same system. And the 11 piece system went up around $10 or so in price also from the earlier sale price of $29. 
+So it looks okay, but if you look at the base, the part where the blade locks into place doesn’t look as good as in previous
+editions from a few years ago, but I plan to be very gentle with it (example, I crush very hard items like beans, ice, rice, etc. 
+in the blender first then pulverize them in the serving size I want in the blender then switch to the whipping blade for a finer 
+flour, and use the cross cutting blade first when making smoothies, then use the flat blade if I need them finer/less pulpy). 
+Special tip when making smoothies, finely cut and freeze the fruits and vegetables (if using spinach-lightly stew soften the 
+spinach then freeze until ready for use-and if making sorbet, use a small to medium sized food processor) that you plan to use 
+that way you can avoid adding so much ice if at all-when making your smoothie.After about a year, the motor was making a funny 
+noise.I called customer service but the warranty expired already, so I had to buy another one. FYI: The overall quality has gone 
+done in these types of products, so they are kind of counting on brand recognition and consumer loyalty to maintain sales. 
+Got it in about two days.
+```
+```
+Prompt:
+因为视频中用了 Python 中的循环处理，所以下面 Prompt 是我自己写的
+Your task is to generate a short summary of a product review from an ecommerce site. 
+Summarize the reviews below, there are three paragraphs in total，they are delimited by triple backticks in at most 20 words.
+
+use follow format:
+Review1 Summary:<summary1>
+Review2 Summary:<summary2>
+Review3 Summary:<summary3>
+
+Review:
+'''
+revies description
+'''
+
+ChatGPT:
+Review1 Summary: Fast delivery, lamp arrived with broken string, but company provided a new one and missing part quickly.
+Review2 Summary: Electric toothbrush has impressive battery life, but toothbrush head is too small. Good deal if bought around $50.
+Review3 Summary: Blender quality has gone down, but still works well. Tips provided for making smoothies. Price increase from seasonal sale. 
+```
+## 模型推断
+模型将输入的文本做某种分析，可以说提取主题标签，提取名字，情感分析等任务。
+下面是「一盏灯」的评论，对这段文本我们进行多种类型的推断。
+```
+Text:
+Needed a nice lamp for my bedroom, and this one had additional storage and not too high of a price point.Got it fast.The string 
+to our lamp broke during the transit and the company happily sent over a new one.Came within a few days as well. It was easy 
+to put together.I had a missing part, so I contacted their support and they very quickly got me the missing piece! Lumina seems 
+to me to be a great company that cares about their customers and products!
+```
+### 情感判断
